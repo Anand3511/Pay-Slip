@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pay Slip</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="" alt="Company Logo">
+      <h1>ABC Infocom Solution Pvt Ltd</h1>
+      <p>Pay Slip for the Month of <span id="month"></span></p> <!-- Dynamic Month -->
+    </div>
+
+    <div class="input-section">
+      <input type="text" id="employee-id" placeholder="Enter Employee ID">
+      <button onclick="fetchDetails()">Get Details</button>
+    </div>
+
+    <table>
+      <tr>
+        <th>Employee ID</th>
+        <td id="emp-id"></td>
+        <th>Bank Name</th>
+        <td id="bank-name"></td>
+      </tr>
+      <tr>
+        <th>Employee Name</th>
+        <td id="emp-name"></td>
+        <th>Account Number</th>
+        <td id="account-no"></td>
+      </tr>
+      <tr>
+        <th>Designation</th>
+        <td id="designation"></td>
+        <th>Total Working Days</th>
+        <td>30</td> <!-- Fixed Working Days -->
+      </tr>
+      <tr>
+        <th>Department</th>
+        <td id="department"></td>
+        <th>Leaves</th>
+        <td><input type="number" id="leaves" oninput="calculatePaidDays()" style="width: 100%;"></td>
+      </tr>
+      <tr>
+        <th>Date of Joining</th>
+        <td id="doj"></td>
+        <th>Paid Days</th>
+        <td id="paid-days"></td>
+      </tr>
+    </table>
+
+    <table>
+      <thead>
+        <tr>
+          <th colspan="2">Earnings</th>
+          <th colspan="2">Deductions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Basic</td>
+          <td id="basic"></td>
+          <td>ESI</td>
+          <td id="esi">0</td>
+        </tr>
+        <tr>
+          <td>HRA</td>
+          <td id="hra"></td>
+          <td>Professional Tax</td>
+          <td id="tax">0</td>
+        </tr>
+        <tr>
+          <td>Travel Allowance</td>
+          <td id="travel"></td>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td>Medical Allowance</td>
+          <td id="medical"></td>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td>Special Allowance</td>
+          <td id="special"></td>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td>Gross Wages</td>
+          <td id="gross-wages"></td>
+          <td>LOP Days</td>
+          <td id="lop-days"></td>
+        </tr>
+        <tr class="totals-row">
+          <td>Total Earnings</td>
+          <td id="total-earnings"></td>
+          <td>Total Deductions</td>
+          <td id="total-deductions">0</td>
+        </tr>
+        <tr class="totals-row">
+          <td colspan="2">Net Salary</td>
+          <td colspan="2" id="net-salary"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <a href="#" class="download-btn" id="download">Download as PDF</a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+  <script src="basic.js"></script>
+</body>
+</html>
